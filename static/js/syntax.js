@@ -10,6 +10,8 @@ exports.aceInitInnerdocbodyHead = function(hook_name, args, cb) {
     if (padcookie.getPref("SH_BRUSH")) brush = padcookie.getPref("SH_BRUSH");
     if (brush == 'auto') brush = clientVars.brush;
 
+    brush = 'markdown';
+
     // yes, a global variable on the client. Sorry about that.
     shBrush = brush;
 
@@ -32,6 +34,8 @@ exports.acePostWriteDomLineHTML = function(hook_name, args, cb) {
 
     //});
 
+
+    shBrush = 'markdown';
 
     // if none, then nothing to do, otherwise lets start! Liny by line.
     if (typeof shBrush == 'undefined')
@@ -76,6 +80,8 @@ exports.disableAuthorColorsForThisLine = function(hook_name, args, cb) {
 
     //console.log("dACFTL args.text:" + args.text + " args.class:" + args.class);
 
+    shBrush = 'markdown';
+
     if (typeof shBrush == 'undefined')
         return false;
 
@@ -85,6 +91,8 @@ exports.disableAuthorColorsForThisLine = function(hook_name, args, cb) {
 };
 
 exports.aceKeyEvent = function(hook_name, args, cb) {
+
+    shBrush = 'markdown';
 
     // only if syntax highlighting is on
     if (shBrush == 'none' || shBrush == 'plain') return false;
