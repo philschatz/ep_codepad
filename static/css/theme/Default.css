@@ -123,6 +123,14 @@ body {
 
 
 
+.hljs-link_label {
+  color: 333;
+  text-decoration: underline;
+}
+.hljs-link_reference,
+.hljs-link_url {
+  color: #ccc;
+}
 
 
 
@@ -164,7 +172,6 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 /* User color: hue: 0 */
 
-.hljs-link_label,
 .hljs-type,
 .hljs-string,
 .hljs-number,
@@ -176,14 +183,12 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
   color: #880000;
 }
 
-.hljs-link_reference,
 .hljs-title,
 .hljs-section {
   color: #880000;
   font-weight: bold;
 }
 
-.hljs-link_url,
 .hljs-regexp,
 .hljs-symbol,
 .hljs-variable,
