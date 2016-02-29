@@ -6058,6 +6058,22 @@ hljs.registerLanguage('markdown', function(hljs) {
   return {
     aliases: ['md', 'mkdown', 'mkd'],
     contains: [
+      // GFM Links
+      {
+        className: 'gfm-link',
+        variants: [
+          // Auto-link user/repo@sha1
+          {begin: '([a-z0-9_\-+=.]+\/[a-z0-9_\-+=.]+)@([a-f0-9]{40})' },
+          // Auto-link user@sha1 and user#issue if repo is defined
+          { begin: '([a-z0-9_\-+=.]+)@([a-f0-9]{40})' },
+          { begin: '([a-z0-9_\-+=.]+)#([0-9]+)' },
+          // Auto-link sha1 and #issue if context is defined
+          { begin: '[a-f0-9]{40}' },
+          { begin: '#([0-9]+)' },
+          // Auto-link user/repo#issue
+          { begin: '([a-z0-9_\-+=.]+\/[a-z0-9_\-+=.]+)#([0-9]+)' }
+        ]
+      },
       // highlight headers
       {
         className: 'section',

@@ -123,17 +123,6 @@ body {
 
 
 
-.hljs-link_label {
-  color: 333;
-  text-decoration: underline;
-}
-.hljs-link_reference,
-.hljs-link_url {
-  color: #ccc;
-}
-
-
-
 /*
 
 Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
@@ -233,4 +222,36 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
 
 .hljs-strong {
   font-weight: bold;
+}
+
+
+
+
+
+.hljs-gfm-link,
+.hljs-link_label {
+  color: #4078c0;
+  /*text-decoration: underline;*/
+}
+.hljs-link_reference,
+.hljs-link_url {
+  color: #ccc;
+}
+
+/* From GitHub */
+.hljs-code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+.hljs-code::before,
+.hljs-code::after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
 }
