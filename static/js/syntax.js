@@ -1,14 +1,14 @@
-var padcookie = require('ep_etherpad-lite/static/js/pad_cookie').padcookie;
+// var padcookie = require('ep_etherpad-lite/static/js/pad_cookie').padcookie;
 var hl_stack = '';
 
 // SYNTAX
 exports.aceInitInnerdocbodyHead = function(hook_name, args, cb) {
 
     var brush = 'markdown';
-    if (typeof clientVars.brush !== 'undefined') brush = clientVars.brush;
-
-    if (padcookie.getPref("SH_BRUSH")) brush = padcookie.getPref("SH_BRUSH");
-    if (brush == 'auto') brush = clientVars.brush;
+    // if (typeof clientVars.brush !== 'undefined') brush = clientVars.brush;
+    //
+    // if (padcookie.getPref("SH_BRUSH")) brush = padcookie.getPref("SH_BRUSH");
+    // if (brush == 'auto') brush = clientVars.brush;
 
     brush = 'markdown';
 
