@@ -14,6 +14,9 @@ exports.aceInitInnerdocbodyHead = function(hook_name, args, cb) {
 
     if (getCookie("codepad_theme") !== "") theme = getCookie("codepad_theme");
 
+
+    theme = 'Cobalt';
+    
     // yes, a global variable on the client. Sorry about that.
     shTheme = theme;
 
