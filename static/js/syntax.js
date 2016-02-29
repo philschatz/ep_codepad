@@ -4,7 +4,7 @@ var hl_stack = '';
 // SYNTAX
 exports.aceInitInnerdocbodyHead = function(hook_name, args, cb) {
 
-    var brush = 'none';
+    var brush = 'markdown';
     if (typeof clientVars.brush !== 'undefined') brush = clientVars.brush;
 
     if (padcookie.getPref("SH_BRUSH")) brush = padcookie.getPref("SH_BRUSH");
