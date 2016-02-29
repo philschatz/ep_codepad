@@ -59,7 +59,7 @@ function scrollToPadLine(lineNumber) {
             // browser.mozilla is obsolete
             if (browser.mozilla || browser.firefox) $outerdocHTML.animate({
                 scrollTop: newY
-            }); // needed for FF     
+            }); // needed for FF
             return false;
         }
         count++;
@@ -81,84 +81,84 @@ var padSearchReset = function() {
 };
 
 exports.aceKeyEvent = function(hook_name, args, cb) {
-    var type = args.evt.type;
-    var key = args.evt.key;
-    var keyCode = args.evt.keyCode;
-    var charCode = args.evt.charCode;
-    //var which = args.evt.which;
-    var check = "keypress";
-    if ((browser.msie || browser.safari || browser.chrome)) check = "keydown";
-
-    // Search F4
-    if (keyCode === 115 && charCode === 0 && type == check) {
-        padsearchAction(args.editorInfo, true);
-    }
-
-    // Replace F7
-    if (keyCode === 118 && charCode === 0 && type == check) {
-        padsearchReplaceAction(args.editorInfo);
-    }
+    // var type = args.evt.type;
+    // var key = args.evt.key;
+    // var keyCode = args.evt.keyCode;
+    // var charCode = args.evt.charCode;
+    // //var which = args.evt.which;
+    // var check = "keypress";
+    // if ((browser.msie || browser.safari || browser.chrome)) check = "keydown";
+    //
+    // // Search F4
+    // if (keyCode === 115 && charCode === 0 && type == check) {
+    //     padsearchAction(args.editorInfo, true);
+    // }
+    //
+    // // Replace F7
+    // if (keyCode === 118 && charCode === 0 && type == check) {
+    //     padsearchReplaceAction(args.editorInfo);
+    // }
     return false;
 };
 
 exports.postAceInit = function(hook, context) {
 
-    // get the ace object for the button
-    $('.padsearch').keypress(function(e) {
-        var code = e.keyCode || e.which;
-        if (code == 13) {
-            context.ace.callWithAce(function(ace) {
-                padsearchAction(ace, true);
-            }, 'padsearch_callstack', true);
-        }
-    });
-    $('.padsearch-up').click(function() {
-        context.ace.callWithAce(function(ace) {
-            padsearchAction(ace, false);
-        }, 'padsearch_callstack', true);
-    });
-    $('.padsearch-down').click(function() {
-        context.ace.callWithAce(function(ace) {
-            padsearchAction(ace, true);
-        }, 'padsearch_callstack', true);
-    });
-    $('.padreplace').keypress(function(e) {
-        var code = e.keyCode || e.which;
-        if (code == 13) {
-            context.ace.callWithAce(function(ace) {
-                padsearchReplaceAction(ace);
-            }, 'padsearch_callstack', true);
-        }
-    });
-    $('.padsearch-replace').click(function() {
-        context.ace.callWithAce(function(ace) {
-            padsearchReplaceAction(ace);
-        }, 'padsearch_callstack', true);
-    });
-
-    // here we scroll and highlight the line if we get it on a get-parameter    
-    if (window.location.search !== '') {
-
-        var line = 0;
-        var tmp = [];
-
-        // substract the linenumber info
-        var items = location.search.substr(1).split("&");
-        for (var index = 0; index < items.length; index++) {
-            tmp = items[index].split("=");
-            if (tmp[0] === 'line') line = Number(tmp[1]); //decodeURIComponent(tmp[1]);
-        }
-
-        if (line === 0) return false;
-
-        // action!
-        scrollToPadLine(line);
-
-        // and put some highlight on it - with a delay
-        setTimeout(function() {
-            $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").contents().eq(line - 1).addClass("padsearch_line");
-        }, 1000);
-    }
+    // // get the ace object for the button
+    // $('.padsearch').keypress(function(e) {
+    //     var code = e.keyCode || e.which;
+    //     if (code == 13) {
+    //         context.ace.callWithAce(function(ace) {
+    //             padsearchAction(ace, true);
+    //         }, 'padsearch_callstack', true);
+    //     }
+    // });
+    // $('.padsearch-up').click(function() {
+    //     context.ace.callWithAce(function(ace) {
+    //         padsearchAction(ace, false);
+    //     }, 'padsearch_callstack', true);
+    // });
+    // $('.padsearch-down').click(function() {
+    //     context.ace.callWithAce(function(ace) {
+    //         padsearchAction(ace, true);
+    //     }, 'padsearch_callstack', true);
+    // });
+    // $('.padreplace').keypress(function(e) {
+    //     var code = e.keyCode || e.which;
+    //     if (code == 13) {
+    //         context.ace.callWithAce(function(ace) {
+    //             padsearchReplaceAction(ace);
+    //         }, 'padsearch_callstack', true);
+    //     }
+    // });
+    // $('.padsearch-replace').click(function() {
+    //     context.ace.callWithAce(function(ace) {
+    //         padsearchReplaceAction(ace);
+    //     }, 'padsearch_callstack', true);
+    // });
+    //
+    // // here we scroll and highlight the line if we get it on a get-parameter
+    // if (window.location.search !== '') {
+    //
+    //     var line = 0;
+    //     var tmp = [];
+    //
+    //     // substract the linenumber info
+    //     var items = location.search.substr(1).split("&");
+    //     for (var index = 0; index < items.length; index++) {
+    //         tmp = items[index].split("=");
+    //         if (tmp[0] === 'line') line = Number(tmp[1]); //decodeURIComponent(tmp[1]);
+    //     }
+    //
+    //     if (line === 0) return false;
+    //
+    //     // action!
+    //     scrollToPadLine(line);
+    //
+    //     // and put some highlight on it - with a delay
+    //     setTimeout(function() {
+    //         $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").contents().eq(line - 1).addClass("padsearch_line");
+    //     }, 1000);
+    // }
 
 };
 
@@ -221,7 +221,7 @@ function padsearchReplaceAction(ace) {
 
     ace.ace_replaceRange([pslc - 1, pscc], [pslc - 1, pscc + pse.value.length], pre.value);
 
-    // the line lenght propably changed 
+    // the line lenght propably changed
     lpslinetext = $('iframe[name="ace_outer"]').contents().find('iframe').contents().find("#innerdocbody").contents().eq(pslc - 1).text();
     padsearchAction(ace, true);
 
@@ -237,8 +237,8 @@ function padsearchReplaceAction(ace) {
 exports.documentReady = function() {
 
     // import values from main codepad search - if they are set
-    pse.value = decodeURIComponent(getCookie("codepad_search"));
-    pre.value = decodeURIComponent(getCookie("codepad_replace"));
+    // pse.value = decodeURIComponent(getCookie("codepad_search"));
+    // pre.value = decodeURIComponent(getCookie("codepad_replace"));
 
 };
 
@@ -366,7 +366,7 @@ padsearchAction = function(ace, fw) {
 
                 ace.ace_performSelectionChange([pslc - 1, pscc], [pslc - 1, pscc + ps.length]);
 
-                //if (fw) 
+                //if (fw)
                 //pscc++;
 
                 return false;
