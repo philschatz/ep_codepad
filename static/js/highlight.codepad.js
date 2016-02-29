@@ -650,7 +650,7 @@ var hljs = new function() {
             className: 'cb',
             begin: '{|}'
         };
-        
+
         //this.CODEPAD_OCB = {
         //    className: 'ocb',
         //    begin: '{'
@@ -659,7 +659,7 @@ var hljs = new function() {
         //    className: 'ccb',
         //    begin: '}'
         //};
-        
+
         // Common modes
         this.BACKSLASH_ESCAPE = {
             begin: '\\\\[\\s\\S]',
@@ -1901,7 +1901,7 @@ hljs.registerLanguage('css', function(hljs) {
   var IDENT_RE = '[a-zA-Z-][a-zA-Z0-9_-]*';
   var FUNCTION = {
     className: 'function',
-    begin: IDENT_RE + '\\(', 
+    begin: IDENT_RE + '\\(',
     returnBegin: true,
     excludeEnd: true,
     end: '\\('
@@ -2121,7 +2121,7 @@ hljs.registerLanguage('nix', function(hljs) {
     SINGLE_QUOTE,
     DOUBLE_QUOTE,
     ATTRS
-  ];  
+  ];
   ANTIQUOTE.contains = EXPRESSIONS;
   return {
     aliases: ["nixos"],
@@ -3931,7 +3931,7 @@ hljs.registerLanguage('gradle', function(hljs) {
         'times toInteger toList tokenize upto waitForOrKill withPrintWriter withReader ' +
         'withStream withWriter withWriterAppend write writeLine'
     },
-    contains: [    
+    contains: [
       hljs.C_LINE_COMMENT_MODE,
       hljs.C_BLOCK_COMMENT_MODE,
       hljs.APOS_STRING_MODE,
@@ -4231,7 +4231,7 @@ hljs.registerLanguage('scss', function(hljs) {
   };
   var FUNCTION = {
     className: 'function',
-    begin: IDENT_RE + '\\(', 
+    begin: IDENT_RE + '\\(',
     returnBegin: true,
     excludeEnd: true,
     end: '\\('
@@ -6060,7 +6060,7 @@ hljs.registerLanguage('markdown', function(hljs) {
     contains: [
       // highlight headers
       {
-        className: 'header',
+        className: 'section',
         variants: [
           { begin: '^#{1,6}', end: '$' },
           { begin: '^.+?\\n[=-]{2,}$' }
@@ -6094,7 +6094,7 @@ hljs.registerLanguage('markdown', function(hljs) {
       },
       // blockquotes
       {
-        className: 'blockquote',
+        className: 'quote',
         begin: '^>\\s+', end: '$'
       },
       // code snippets
@@ -6327,20 +6327,20 @@ hljs.registerLanguage('r', function(hljs) {
 
 hljs.registerLanguage('q', function(hljs) {
   var Q_KEYWORDS = {
-  keyword: 
+  keyword:
     'do while select delete by update from',
   constant:
     '0b 1b',
-  built_in: 
+  built_in:
     'neg not null string reciprocal floor ceiling signum mod xbar xlog and or each scan over prior mmu lsq inv md5 ltime gtime count first var dev med cov cor all any rand sums prds mins maxs fills deltas ratios avgs differ prev next rank reverse iasc idesc asc desc msum mcount mavg mdev xrank mmin mmax xprev rotate distinct group where flip type key til get value attr cut set upsert raze union inter except cross sv vs sublist enlist read0 read1 hopen hclose hdel hsym hcount peach system ltrim rtrim trim lower upper ssr view tables views cols xcols keys xkey xcol xasc xdesc fkeys meta lj aj aj0 ij pj asof uj ww wj wj1 fby xgroup ungroup ej save load rsave rload show csv parse eval min max avg wavg wsum sin cos tan sum',
-  typename: 
-    '`float `double int `timestamp `timespan `datetime `time `boolean `symbol `char `byte `short `long `real `month `date `minute `second `guid'    
+  typename:
+    '`float `double int `timestamp `timespan `datetime `time `boolean `symbol `char `byte `short `long `real `month `date `minute `second `guid'
   };
   return {
   aliases:['k', 'kdb'],
-  keywords: Q_KEYWORDS, 
-  lexemes: /\b(`?)[A-Za-z0-9_]+\b/, 
-  contains: [ 
+  keywords: Q_KEYWORDS,
+  lexemes: /\b(`?)[A-Za-z0-9_]+\b/,
+  contains: [
   hljs.C_LINE_COMMENT_MODE,
     hljs.QUOTE_STRING_MODE,
     hljs.C_NUMBER_MODE
@@ -6640,7 +6640,7 @@ hljs.registerLanguage('haxe', function(hljs) {
     aliases: ['hx'],
     keywords: {
       keyword: 'break callback case cast catch class continue default do dynamic else enum extends extern ' +
-		'for function here if implements import in inline interface never new override package private ' + 
+		'for function here if implements import in inline interface never new override package private ' +
 		'public return static super switch this throw trace try typedef untyped using var while',
       literal: 'true false null'
     },
