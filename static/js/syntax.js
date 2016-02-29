@@ -14,10 +14,10 @@ exports.aceInitInnerdocbodyHead = function(hook_name, args, cb) {
     shBrush = brush;
 
     // notify user
-    var syb = document.getElementById("syntaxes");
-    for (var j = 0; j < syb.options.length; j++) {
-        if (brush == syb.options[j].value) syb.options[j].selected = true;
-    }
+    // var syb = document.getElementById("syntaxes");
+    // for (var j = 0; j < syb.options.length; j++) {
+    //     if (brush == syb.options[j].value) syb.options[j].selected = true;
+    // }
 
 };
 
